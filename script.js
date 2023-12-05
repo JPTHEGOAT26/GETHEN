@@ -40,6 +40,13 @@ function writeUserData(userId, name, email, imageUrl) {
 }
 
 
+function onGameOver() {
+  if (this.over) {
+    writeUserData(userId, name, email, imageUrl);
+  }
+}
+
+
 let scoreText;
 let score = 0;
 document.addEventListener("DOMContentLoaded", function () {
