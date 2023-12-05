@@ -10,35 +10,56 @@
 </head>
 <body>
   <div id="my-signin2"></div>
-  <script>
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
-    function onFailure(error) {
-      console.error(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    }
-    if (auth2.isSignedIn.get()) {
-  var profile = auth2.currentUser.get().getBasicProfile();
-  console.log('ID: ' + profile.getId());
-  console.log('Full Name: ' + profile.getName());
-  console.log('Given Name: ' + profile.getGivenName());
-  console.log('Family Name: ' + profile.getFamilyName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail());
-}
-  </script>
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+    <!-- Your JavaScript -->
+    <script>
+        function onSuccess(googleUser) {
+            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        }
+
+        function onFailure(error) {
+            console.error(error);
+        }
+
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+
+        function initGoogleSignIn() {
+            gapi.load('auth2', function () {
+                gapi.auth2.init().then(function (auth2) {
+                    // Assuming you want to check if the user is signed in on load
+                    if (auth2.isSignedIn.get()) {
+                        var profile = auth2.currentUser.get().getBasicProfile();
+                        console.log('ID: ' + profile.getId());
+                        console.log('Full Name: ' + profile.getName());
+                        console.log('Given Name: ' + profile.getGivenName());
+                        console.log('Family Name: ' + profile.getFamilyName());
+                        console.log('Image URL: ' + profile.getImageUrl());
+                        console.log('Email: ' + profile.getEmail());
+                    }
+                });
+            });
+        }
+
+        // Run the rendering of the Google Sign-In button after the platform.js script loads
+        window.onload = function () {
+            renderButton();
+            initGoogleSignIn();
+        };
+    </script>
+
+    <!-- Include Google API platform.js -->
+    <script src="https://apis.google.com/js/platform.js?onload=initGoogleSignIn" async defer></script>
+
 <!-- partial:index.partial.html -->
 <div class="container">
   <div class="heading">
