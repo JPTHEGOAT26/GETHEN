@@ -8,33 +8,11 @@
      crossorigin="anonymous"></script>
   <meta name="google-signin-client_id" content="661524162176-opto5dukjfuu87sco5r2a4ipn2fis8na.apps.googleusercontent.com"›
   <script src="https://apis.google.com/js/api.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2772286542544679"
-     crossorigin="anonymous"></script>
-
+  gapi.load('auth2', function() {
+    gapi.auth2.init();
+  });
 </head>
 <body>
-  <div id="my-signin2"></div>
-  <script>
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
-    function onFailure(error) {
-      console.log(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    }
-  </script>
-
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 <!-- partial:index.partial.html -->
 <div class="container">
   <div class="heading">
