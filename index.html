@@ -7,7 +7,11 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2772286542544679"
      crossorigin="anonymous"></script>
   <meta name="google-signin-client_id" content="661524162176-opto5dukjfuu87sco5r2a4ipn2fis8na.apps.googleusercontent.com"›
-  </head>
+  <script src="https://apis.google.com/js/api.js"></script>
+  gapi.load('auth2', function() {
+    gapi.auth2.init();
+  });
+</head>
 <body>
 <!-- partial:index.partial.html -->
 <div class="container">
@@ -91,9 +95,7 @@
  	<p>2014</p>
     -->
 </div>
-  
 
-    <script src="https://apis.google.com/js/api.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.6/hammer.min.js'></script>
   <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
