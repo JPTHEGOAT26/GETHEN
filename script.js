@@ -1,3 +1,30 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCh_msWFqJZmlwkaZxRzKLoW3XDhLYTYns",
+  authDomain: "get-hen.firebaseapp.com",
+  databaseURL: "https://get-hen-default-rtdb.firebaseio.com",
+  projectId: "get-hen",
+  storageBucket: "get-hen.appspot.com",
+  messagingSenderId: "957303741014",
+  appId: "1:957303741014:web:1d3ce59f795a2132b579f7",
+  measurementId: "G-FVCBNQN3YC"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
+
+
+
 let scoreText;
 let score = 0;
 document.addEventListener("DOMContentLoaded", function () {
