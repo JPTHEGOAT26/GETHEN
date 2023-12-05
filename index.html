@@ -9,7 +9,9 @@
      crossorigin="anonymous"></script>
 </head>
 <body>
+  
   <div id="my-signin2"></div>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
   <script>
     function onSuccess(googleUser) {
       console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
