@@ -6,6 +6,7 @@ html, body {
   color: #001e51;
   font-family: 'Slackey',sans-serif;
   font-size: 18px;
+  cursor: pointer;
 }
 
 body {
@@ -61,17 +62,15 @@ h1.title {
 }
 .score-container {
   position: absolute;
-  top: 37px; right: 450px;
-  float: right;
+  top: 95px; right: 455px;
   background: #bbada0;
-  padding: 20px 30px;
+  padding: 20px 35px;
   font-size: 25px;
   height: 25px;
   line-height: 47px;
   font-weight: bold;
   border-radius: 3px;
   color: white;
-  margin-top: 8px;
 }
 .score-container:after {
   position: absolute;
@@ -160,7 +159,7 @@ hr {
   margin-top: 10px;
   position: relative;
   padding: 15px;
-  cursor: default;
+  cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
