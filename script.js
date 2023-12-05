@@ -21,8 +21,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+import { getDatabase, ref, set } from "firebase/database";
 
 
+const userId = "user123";
+const name = "John Doe";
+const email = "john@example.com";
+const imageUrl = "https://example.com/profile.jpg";
+
+
+function writeUserData(userId, name, email, imageUrl) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
 
 
 let scoreText;
