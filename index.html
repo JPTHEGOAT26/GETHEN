@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="./style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2772286542544679"
      crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@descope/web-js-sdk@1.6.7/dist/index.umd.js"></script>
-    <!-- Please replace `x.x.x` with the latest version of the WebJS SDK, which you can get from [here](https://www.npmjs.com/package/@descope/web-js-sdk) -->
   </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -73,27 +71,6 @@
     -->
 </div>
 
-  <script>
-  let descopeSdk = Descope({projectId: '<ProjectId>', persistTokens: true, autoRefresh: true });
-
-  async function webauthnSignUp() {
-    // Args:
-    //    loginId: email or phone - becomes the externalID for the user from here on and also used for delivery
-    const loginId = document.getElementById("loginId").value
-    //    name: User's name. Ex: firstName lastName
-    const name = document.getElementById("name").value
-
-    const resp = await descopeSdk.webauthn.signUp(loginId, name);
-    if (!resp.ok) {
-      window.alert("Failed to sign up via Biometrics (Webauthn) \nStatus Code: " + resp.code
-        + "\nError Code: " + resp.error.errorCode + "\nError Description: " + resp.error.errorDescription + "\nError Message: " + resp.error.message)
-    }
-    else {
-      console.log("Successfully signed up via Biometrics (Webauthn) ")
-      window.location.replace("../loggedIn.html?userId=" + encodeURIComponent(loginId) + "&sessionJwt=" + resp.data.sessionJwt)
-    }
-  }
-</script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.6/hammer.min.js'></script>
 
   <script>
