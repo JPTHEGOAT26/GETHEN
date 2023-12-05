@@ -62,7 +62,7 @@ h1.title {
 }
 .score-container {
   position: absolute;
-  top: 105px; right: 455px;
+  top: 80px; right: 455px;
   background: #bbada0;
   padding: 20px 35px;
   font-size: 25px;
