@@ -15,7 +15,7 @@
       console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
     }
     function onFailure(error) {
-      console.log(error);
+      console.error(error);
     }
     function renderButton() {
       gapi.signin2.render('my-signin2', {
