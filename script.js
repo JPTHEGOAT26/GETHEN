@@ -1,4 +1,5 @@
 
+
 let scoreText;
 let score = 0;
 document.addEventListener("DOMContentLoaded", function () {
@@ -537,3 +538,16 @@ Tile.prototype.updatePosition = function (position) {
   this.x = position.x;
   this.y = position.y;
 };
+
+function onGoogleSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  var userName = profile.getName();
+  var userEmail = profile.getEmail();
+  
+  var userProfileInfo = 'Welcome, ' + userName + '!<br>';
+  userProfileInfo += 'Email: ' + userEmail;
+  
+  // Display the user's information on the page
+  document.getElementById('userProfile').innerHTML = userProfileInfo;
+};
+
