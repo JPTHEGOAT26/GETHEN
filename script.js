@@ -538,6 +538,58 @@ Tile.prototype.updatePosition = function (position) {
   this.x = position.x;
   this.y = position.y;
 };
+function validateAccessToken(token) {
+    // Make a request to Google's token validation endpoint
+    fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${token}`)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Token validation failed');
+            }
+        })
+        .then(tokenInfo => {
+            // Check the token info
+            console.log('Token Info:', tokenInfo);
+            // Verify if the token is valid and check its details (e.g., expiration time, audience, etc.)
+            // Perform necessary checks based on your application requirements
+        })
+        .catch(error => {
+            console.error('Token validation error:', error);
+        });
+}
+
+// Example function to validate and test Google ID Token
+function validateIDToken(token) {
+    // Make a request to Google's token validation endpoint
+    fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${token}`)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Token validation failed');
+            }
+        })
+        .then(tokenInfo => {
+            // Check the token info
+            console.log('Token Info:', tokenInfo);
+            // Verify if the token is valid and check its details (e.g., expiration time, issuer, etc.)
+            // Perform necessary checks based on your application requirements
+        })
+        .catch(error => {
+            console.error('Token validation error:', error);
+        });
+}
+
+// Example usage:
+const accessToken = 'YOUR_ACCESS_TOKEN_HERE';
+const idToken = 'YOUR_ID_TOKEN_HERE';
+
+// Test the access token
+validateAccessToken(accessToken);
+
+// Test the ID token
+validateIDToken(idToken);
 
 function onGoogleSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
