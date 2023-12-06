@@ -7,18 +7,6 @@
   <script src="https://apis.google.com/js/api.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2772286542544679"
      crossorigin="anonymous"></script>
-  <style>
-    /* Example CSS styles for the displayed user information */
-    #userProfile {
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      margin: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f9f9f9;
-    }
-  </style>
 </head>
 <body>
     <script src="https://accounts.google.com/gsi/client" async></script>
@@ -27,41 +15,6 @@
         data-login_uri=""
         data-auto_prompt="true">
     </div>
- <button id="testTokensButton">Test Tokens</button>
-
-<script>
-  // Example function to validate and test Google Access Token
-  function validateAccessToken(token) {
-    // Make a request to Google's token validation endpoint
-    fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${token}`)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Token validation failed');
-        }
-      })
-      .then(tokenInfo => {
-        console.log('Access Token Info:', tokenInfo);
-        // Additional token validation logic based on your requirements
-        // You can update UI or perform further actions here
-        alert('Access Token tested! Check console for details.');
-      })
-      .catch(error => {
-        console.error('Access Token validation error:', error);
-        alert('Access Token validation failed! Check console for error details.');
-      });
-  }
-
-  // Function to handle button click event
-  document.getElementById('testTokensButton').addEventListener('click', function() {
-    // Retrieve the access token after successful Google Sign-In (replace this with the actual way you get the access token)
-    const accessToken = 'YOUR_ACCESS_TOKEN_HERE'; // Replace with the actual access token you want to test
-
-    // Test the access token
-    validateAccessToken(accessToken);
-  });
-</script>
 <!-- partial:index.partial.html -->
 <div class="container">
   <div class="heading">
