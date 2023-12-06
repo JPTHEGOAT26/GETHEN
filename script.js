@@ -1,51 +1,30 @@
-/* // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase, ref } from "firebase/database";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCh_msWFqJZmlwkaZxRzKLoW3XDhLYTYns",
-  authDomain: "get-hen.firebaseapp.com",
-  databaseURL: "https://get-hen-default-rtdb.firebaseio.com",
-  projectId: "get-hen",
-  storageBucket: "get-hen.appspot.com",
-  messagingSenderId: "957303741014",
-  appId: "1:957303741014:web:1d3ce59f795a2132b579f7",
-  measurementId: "G-FVCBNQN3YC"
+  apiKey: "AIzaSyCxXN03D3ZNDwstNgbsWWlRjPcq9IB3JwU",
+  authDomain: "gethen-407121.firebaseapp.com",
+  projectId: "gethen-407121",
+  storageBucket: "gethen-407121.appspot.com",
+  messagingSenderId: "661524162176",
+  appId: "1:661524162176:web:4f21876f81d7f67f656865",
+  measurementId: "G-XSDRT0T60Q"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-import { getDatabase, ref, set } from "firebase/database";
+function writeUserData(userID, name, email, imageUrl) {
+const db = getDatabase();
+const refrence = ref(db, 'users/' + userID);
 
-
-const userId = "user123";
-const name = "John Doe";
-const email = "john@example.com";
-const imageUrl = "https://example.com/profile.jpg";
-
-
-function writeUserData(userId, name, email, imageUrl) {
-  const db = getDatabase();
-  set(ref(db, 'users/' + userId), {
-    username: name,
-    email: email,
-    profile_picture : imageUrl
+set(reference, {
+  username: name, 
+  email: email,
+  profile_picture: imageUrl
   });
 }
-
-
-function onGameOver() {
-  if (this.over) {
-    writeUserData(userId, name, email, imageUrl);
-  }
-} 
-*/
+writeUserData("JPGOD", "JP", "JP@JP.com", "imageUrl");
 
 let scoreText;
 let score = 0;
